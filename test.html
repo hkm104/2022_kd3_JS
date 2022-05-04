@@ -1,0 +1,15 @@
+<body>
+    <h2>Mt First Web Page</h2>
+    <p onclick="change(event)">My first paragraph.</p>
+    <button type="button" onclick="document.write(5+6)">
+        Try it
+    </button>
+    <script>
+        function change(event) {
+            console.log(event.target.innerHTML);
+            event.target.style.backgroundColor = 'red'
+            // alert(5 + 6);
+            // document.querySelector('p').innerHTML = 'Your First ..'
+        }
+    </script>
+</body>
