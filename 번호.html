@@ -1,0 +1,32 @@
+<body>
+  <script>
+    let count = 0;
+
+    const selected = [];
+    while (selected.length < 3) {
+      const num = parseInt(Math.random() * 45) + 1;
+      if (selected.indexOf(num) == -1) {
+        selected.push(num);
+      }
+    }
+    selected.sort((a, b) => a - b);
+    
+    while(true) {
+      const lotto = [];
+      // lotto 번호 생성 (3개)
+      while (lotto.length < 3) {
+        const num = parseInt(Math.random() * 45) + 1;
+        if (lotto.indexOf(num) == -1) {
+          lotto.push(num);
+        }
+      }
+      count += 1;
+      lotto.sort((a, b) => a - b);
+      if(lotto == selected.toString()) {
+        console.log('맞히기 성공');
+        break;
+      }
+    }
+    console.log(`시도 횟수: ${count}`);
+  </script>
+</body>

@@ -1,0 +1,22 @@
+<body>
+  <script>
+    const article = {
+      num: 1,
+      title: 'A',
+      reply: [
+        { num: 3, title: 'A-3' },
+        { num: 2, title: 'A-2' },
+        { num: 1, title: 'A-1' }
+      ]
+    };
+    for(let item in article) {
+      if(typeof article[item] == 'object') {
+        for(let item2 in article[item]) {
+          console.log(article[item][item2]);
+        }
+      } else {
+        console.log(article[item]);
+      }
+    }
+  </script>
+</body>

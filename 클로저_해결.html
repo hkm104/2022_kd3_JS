@@ -1,0 +1,15 @@
+<body>
+  <button type="button" id="btn1">1번</button>
+  <button type="button" id="btn2">2번</button>
+  <button type="button" id="btn3">3번</button>
+  
+  <script>
+    for(var i = 1; i <= 3; i++) {
+      ((j) => {
+        document.querySelector(`#btn${i}`).addEventListener('click', () => {
+          alert(j);
+        });
+      })(i);
+    }
+  </script>
+</body>

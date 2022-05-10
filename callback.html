@@ -1,0 +1,27 @@
+<body>
+  <script>
+    // getCurrentPosition 흉내내기
+    function action3(num1, num2) {
+      // 여러가지 명령문 실행
+    }
+    function getCurrentPosition(func) {
+      func(123, 456);
+    }
+
+    // CallBack 예)
+    // 2. 현재 위치(위도 / 경도) 확인하기
+    function action2(position) {
+      let lat = position.coords.latitude;
+      let lng = position.coords.longitude;
+      console.log(lat + ' ' + lng);
+    }
+    navigator.geolocation.getCurrentPosition(action2);
+
+    // 1. 일정시간 뒤 명령문 실행
+    //  1-명령문(함수), 2-일정시간(밀리초)
+    // function action() {
+    //   alert('실행 완료!!!');
+    // }
+    // setTimeout(action, 1500);
+  </script>
+</body>

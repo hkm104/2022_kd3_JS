@@ -1,43 +1,48 @@
 <body>
-    <table border="1">
-        <tr>
-            <td>1</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>4</td>
-        </tr>
-    </table>
-    <h1></h1>
-    <button onclick="back()">Back</button>
+  <table border="1">
+    <tr><td>1</td><td>2</td></tr>
+    <tr><td>3</td><td>4</td></tr>
+  </table>
+  <h1></h1>
+  <button onclick="back()">Back</button>
 
-    <script>
-        function back() {
-            // h1의 내용 읽어오기
-            text = document.querySelector('h1').innerHTML
+  <script>
+    function back() {
+      // h1의 내용 읽어오기
+      text = document.querySelector('h1').innerHTML
+      
+      // h1의 내용 뒤에서 한 글자만 삭제하기
+      //        총길이     4
+      //        index  0  3
+      // 입력된 글자 => 1234
+      size = text.length - 1
+      text = text.substring(0, size)
 
-            // h1의 내용 뒤에서 한 글자만 삭제하기
-            //        총길이     4
-            //        index  0  3
-            // 입력된 글자 => 1234
-            size = text.length - 1
-            text = text.substring(0, size)
+      // 수정된 내용을 h1에 입력하기
+      document.querySelector('h1').innerHTML = text
+    }
 
-            // 수정된 내용을 h1에 입력하기
-            document.querySelector('h1').innerHTML = text
-        }
+    alert( 1, '가나다' );
+    alert( console.log() );
+    alert( let age = 30; );
 
-        // 모든 td 선택 후 클릭 이벤트 연결
-        tds = document.querySelectorAll('td')
-        for (td of tds) {
-            td.addEventListener('click', (event) => {
-                //      text = td.textContent
-                text = event.target.innerHTML
-                document.querySelector('h1').innerHTML += text
-                console.log(text);
-            })
-        }
+    alert( test );
+    
+    function test() {
+      let age = 30;
+    }
 
-    </script>
+
+    // 모든 td 선택 후 클릭 이벤트 연결
+    tds = document.querySelectorAll('td')   
+    for(td of tds) {
+      td.addEventListener('click', (event) => {
+//      text = td.textContent
+        text = event.target.innerHTML
+        document.querySelector('h1').innerHTML += text
+        console.log(text);
+      })
+    }
+
+  </script>
 </body>

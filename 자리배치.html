@@ -1,0 +1,65 @@
+
+<meta charset="utf-8">
+<body>
+  <style>
+    #projector {
+      background-color: rgb(207, 232, 220);
+      border: 2px solid rgb(79, 185, 227);
+      padding: 10px; border-radius: 5px;
+      width: 30%;
+      text-align: center;
+      margin: 30px auto;
+    }
+    div > div {
+      text-align: center;
+      background-color: rgb(207, 232, 220);
+      border: 2px solid rgb(79, 185, 227);
+      padding: 10px; border-radius: 5px;
+    }
+    .wrapper {
+      display: grid; grid-gap: 10px;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 15% 15% 15% 15% 15% 15%;
+    }
+  </style>
+
+  <div id="projector">화면</div>
+
+  <div class="wrapper">
+    <div></div> <div></div> <div></div> <div></div> <div></div>
+    <div></div> <div></div> <div></div> <div></div> <div></div>
+    <div></div> <div></div> <div></div> <div></div> <div></div>
+    <div></div> <div></div> <div></div> <div></div> <div></div>
+    <div></div> <div></div> <div></div> <div></div> <div></div>
+    <div></div> <div></div> <div></div> <div></div> <div></div>
+  </div>
+
+  <script>
+    let persons = JSON.parse(localStorage.getItem('persons'));
+    show();
+    document.querySelector('#projector').addEventListener('click', () => {
+      if(confirm('재배치?')) {
+        if(persons == null) {
+          persons = [
+          '김도균', '유한나', '최현아', '오주연', '김준현',
+          '이재영', '장대웅', '한수정', '김서영', '한수용',
+          '유준희', '이정민', '박현우', '이보라', '이승준',
+          '정인혜', '김도연', '유영광', '이진경', '조재우',
+          '강민석', '윤미', '최수민', '황경민'
+          ];
+        }
+        persons.sort(() => Math.random() - 0.5);
+        show();
+      }
+    });
+    
+    function show() {
+      if(persons) {
+        for(let i = 1; i <= persons.length; i++) {
+          document.querySelector(`.wrapper > div:nth-child(${i})`).innerHTML = persons[i-1];
+        }
+        localStorage.setItem('persons', JSON.stringify(persons));
+      }
+    }
+  </script>
+</body>
