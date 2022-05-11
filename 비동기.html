@@ -1,0 +1,15 @@
+<body>
+    <script>
+        const p = new Promise((Resolve, reject) => {
+            setTimeout(() => {
+                Resolve('처리 완료 - 성공');
+            }, 2000);
+            
+        });
+
+        // 비동기 작업 후 처리(마무리)
+        p.then((res) => {
+            console.log(res);
+        });
+    </script>
+</body>

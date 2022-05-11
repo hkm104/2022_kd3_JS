@@ -1,0 +1,28 @@
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const data = axios({
+            url: 'http://ggoreb.com/ajax/json/data2.jsp',
+            method: 'get',
+            params: {
+                'key': 'value'
+            }
+        });
+        data.then(function (result) {
+            for (let key in result.data) {
+                let person = result.data[key];
+                let age = person['age'];
+                let name = person['name'];
+
+                let code = 
+                <h1>${name}</h1>
+                <h2>${age}</h2>
+                    ;
+                document.body.innerHTML += code;
+            }
+
+
+        });
+    </script>
+
+</body>

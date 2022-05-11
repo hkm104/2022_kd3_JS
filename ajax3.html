@@ -1,0 +1,29 @@
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const data = axios({
+            url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=슬기로운&maxResults=10&key=AIzaSyCM7VN_a33HR_6ehqD4__o5Qf6ZMxyLIg8',
+            method: 'get',
+            params: {
+                'key': 'value'
+            }
+        });
+        data.then(function (result) {
+            let items = result.data['items'];
+
+            let code = '';
+
+            for(let item of items){
+                let snippet = item['snippet'];
+                let title = snippet['title'];
+                let url = snippet['thumbnails']['default']['url'];
+                code += `
+                    <img src='${url}'><h3>${title}</h3>
+                `;
+            }
+            
+                document.body.innerHTML += code;
+            
+        });
+    </script>
+</body>
